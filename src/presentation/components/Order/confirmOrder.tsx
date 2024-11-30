@@ -32,7 +32,7 @@ const columns = [
 
 const ConfirmOrder = ({ data, showModal, onclose }: ConfirmOrderProps) => {
 
-    console.log(data);
+    // console.log(data);
     // const [loading, setLoading] = React.useState<boolean>(true);
 
     return (

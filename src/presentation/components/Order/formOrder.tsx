@@ -63,8 +63,6 @@ const FormOrder = ({ onCloseDrawer }: FormOrderProps) => {
         changePaid: 0,
     });
 
-    // const [totalCart, setTotalCart] = useState<number>(0);
-
     const [openModal, setOpenModal] = useState<boolean>(false);
 
     const showModalConfirmOrder = () => {
