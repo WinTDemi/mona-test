@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.sidebar-category {
+  @apply motion-translate-x-in-[-200%] motion-translate-y-in-[0%]
+}
+
+.container-product {
+  @apply motion-translate-x-in-[200%] motion-translate-y-in-[0%]
+}
