@@ -1,6 +1,7 @@
 import { Loading } from "../../components/loading";
 import { useFetchDetailProduct } from "../../../application/hooks/product/useFetchDetailProduct";
 import { Error } from "../../components/error";
+import { memo } from "react";
 
 const DetailProductPage = () => {
 
@@ -14,7 +15,7 @@ const DetailProductPage = () => {
             <Error error={error} />
             <Loading isLoading={isLoading} />
             {data &&
-                <div className="container p-4 mx-auto">
+                <div className="container p-4 mx-auto container-product">
                     <h1 className="mb-4 text-2xl font-bold">{data.title}</h1>
                     <div className="flex flex-col gap-4 lg:flex-row">
                         {/* Product Image */}
@@ -79,4 +80,4 @@ const DetailProductPage = () => {
     );
 };
 
-export default DetailProductPage
+export default memo(DetailProductPage)

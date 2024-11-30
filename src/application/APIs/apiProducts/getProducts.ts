@@ -36,3 +36,15 @@ export const getProductDetail = async (productID: ProductIDDetailReq): Promise<P
 
     return response
 }
+
+// search products by name
+export const searchProducts = async (input: string): Promise<ProductsRes> => {
+
+    const response = await requestAPI<ProductsRes>({
+        path: routes.products.path + `/search?q=${input}`,
+        method: 'GET',
+    });
+
+    return response
+
+}

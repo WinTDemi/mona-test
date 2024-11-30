@@ -3,22 +3,23 @@
 
 ## Bước 1: Cài đặt Dependencies
 
-Trước tiên, bạn cần cài đặt các dependencies được liệt kê trong file `package.json` của dự án. Mở terminal và chạy lệnh sau:
+Trước tiên, bạn cần cài đặt các dependencies được liệt kê trong tệp `package.json` của dự án. Mở terminal và chạy lệnh sau:
 
 ```bash
 npm install
 ```
 
-Sau đó, bạn cần tạo .env cho dự án:
+Sau đó, bạn cần tạo tệp `.env` cho dự án với nội dung sau:
 
+```env
 VITE_BASE_API_URL=https://dummyjson.com
 VITE_PRODUCTS_API_URL=https://dummyjson.com/products
 VITE_PRODUCTS_WITH_CATEGORY_API_URL=https://dummyjson.com/products/category
-
+```
 
 ## Bước 2: Chạy Dự Án
 
-Sau khi cài đặt xong, bạn có thể chạy dự án trong chế độ phát triển bằng lệnh:
+Sau khi cài đặt xong, bạn có thể chạy dự án ở chế độ phát triển bằng lệnh:
 
 ```bash
 npm run dev
@@ -28,15 +29,15 @@ Dự án sẽ được chạy trên localhost, thường là `http://localhost:3
 
 ## Bước 3: Xây Dựng Dự Án
 
-Khi bạn đã hoàn thành việc phát triển và muốn xây dựng ứng dụng để triển khai, bạn có thể sử dụng lệnh sau:
+Khi bạn đã hoàn thành việc phát triển và muốn xây dựng ứng dụng để triển khai, hãy sử dụng lệnh:
 
 ```bash
 npm run build
 ```
 
-Lệnh này sẽ tạo ra một thư mục `dist` chứa các file đã được tối ưu hóa cho việc triển khai.
+Lệnh này sẽ tạo ra một thư mục `dist` chứa các tệp đã được tối ưu hóa để triển khai.
 
-## Bước 4: Chạy Các Lệnh Khác
+## Bước 4: Các Lệnh Khác
 
 Bạn có thể chạy các lệnh khác tùy theo yêu cầu của dự án. Dưới đây là một số lệnh thông dụng:
 
@@ -45,7 +46,7 @@ Bạn có thể chạy các lệnh khác tùy theo yêu cầu của dự án. D�
   npm test
   ```
 
-- **Chạy lệnh**: Nếu bạn muốn chạy một lệnh cụ thể khác mà đã được cấu hình trong `package.json`, hãy sử dụng:
+- **Chạy lệnh tùy chỉnh**: Nếu bạn muốn chạy một lệnh cụ thể khác đã được cấu hình trong `package.json`, hãy sử dụng:
   ```bash
   npm run <tên-lệnh>
   ```

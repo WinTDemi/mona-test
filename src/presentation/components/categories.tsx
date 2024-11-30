@@ -37,7 +37,7 @@ const Categories = () => {
 
     return (
         <div className="sidebar-category">
-            <div className="px-2 lg:sticky top-10">
+            <div className="px-2 top-10">
                 <div className="p-4">
                     <NavLink
                         to={routes.home.path}

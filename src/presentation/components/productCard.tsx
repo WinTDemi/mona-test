@@ -4,7 +4,6 @@ import { routes } from "../../application/constants/constants.routers";
 import { queryParams } from "../../application/constants/constants.QueryParams";
 
 const ProductCard = ({ product }: { product: Product }) => {
-    // console.log(`${product.title}`); // test re-rendering
     return (
         <NavLink
             to={`${routes.detail.path}?${queryParams.DETAIL_PRODUCT_ID}=${product.id}`}
