@@ -65,14 +65,17 @@ const FormOrder = ({ onCloseDrawer }: FormOrderProps) => {
 
     const [openModal, setOpenModal] = useState<boolean>(false);
 
+    // Mở modal
     const showModalConfirmOrder = () => {
         setOpenModal(true);  // Open the modal
     };
 
+    // Đóng modal
     const closeModalConfirmOrder = () => {
         setOpenModal(false);  // Open the modal
     };
 
+    // Xử lý khi nhập thông tin khách hàng
     const handleCustomerChange = (name: string, value: string) => {
         setOrder((prevOrder) => ({
             ...prevOrder,
@@ -80,6 +83,7 @@ const FormOrder = ({ onCloseDrawer }: FormOrderProps) => {
         }));
     };
 
+    // Xử lý khi chọn phương thức thanh toán    
     const handlePaymentMethodChange = (value: number) => {
         setOrder((prevOrder) => ({
             ...prevOrder,
@@ -89,17 +93,19 @@ const FormOrder = ({ onCloseDrawer }: FormOrderProps) => {
         }));
     }
 
+    // Xử lý khi nhập số tiền khách hàng trả
     const handleCustomerPaidChange = (value: number) => {
         setOrder((prevOrder) => {
             const change = (value - prevOrder.amountPaid).toFixed(2); // Tính tiền thừa
             return {
                 ...prevOrder,
                 customerPaid: value,
-                changePaid: parseFloat(change), // Đảm bảo không âm
+                changePaid: (parseFloat(change) < 0 || value <= 0) ? 0 : parseFloat(change), // Đảm bảo không âm
             };
         });
     };
 
+    // Xử lý khi thêm sản phẩm vào giỏ hàng
     const handleAddNewCart = (cart: Cart) => {
         setOrder((prevOrder) => ({
             ...prevOrder,
@@ -107,6 +113,7 @@ const FormOrder = ({ onCloseDrawer }: FormOrderProps) => {
         }));
     }
 
+    // Xử lý khi nhấn nút cộng hoặc trừ sản phẩm
     const handleUpdateCart = (cart: Cart, type: string) => {
         setOrder((prevOrder) => ({
             ...prevOrder,
@@ -123,6 +130,7 @@ const FormOrder = ({ onCloseDrawer }: FormOrderProps) => {
         }));
     }
 
+    // Xử lý khi nhấn nút xóa sản phẩm
     const handleRemoveCart = (cart: Cart) => {
         setOrder((prevOrder) => ({
             ...prevOrder,
@@ -130,6 +138,7 @@ const FormOrder = ({ onCloseDrawer }: FormOrderProps) => {
         }));
     }
 
+    // Xử lý khi nhập mã giảm giá
     const handleApplyDiscount = (cart: Cart, discountCode: string) => {
         const discount = mockDiscount.find((d) => d.code === discountCode);
         if (discount) {
@@ -148,7 +157,7 @@ const FormOrder = ({ onCloseDrawer }: FormOrderProps) => {
             }));
         }
     }
-
+    // Xử lý khi nhấn nút xóa giảm giá
     const handleRemoveDiscount = (cart: Cart) => {
         setOrder((prevOrder) => ({
             ...prevOrder,
@@ -161,6 +170,7 @@ const FormOrder = ({ onCloseDrawer }: FormOrderProps) => {
         }));
     }
 
+    // Tính tổng tiền
     const handleTotalCart = () => {
         setOrder((prevOrder) => ({
             ...prevOrder,
@@ -187,7 +197,7 @@ const FormOrder = ({ onCloseDrawer }: FormOrderProps) => {
         }));
     }
 
-
+    // Xử lý khi nhấn nút thanh toán
     const handleSubmit = () => {
         if (order.carts.length === 0) {
             alert("Please add product to cart");
@@ -208,6 +218,7 @@ const FormOrder = ({ onCloseDrawer }: FormOrderProps) => {
 
     useEffect(() => {
         handleTotalCart()
+        handleCustomerPaidChange(order.customerPaid)
     }, [order.carts])
 
     return (

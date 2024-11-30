@@ -41,9 +41,14 @@ const ConfirmOrder = ({ data, showModal, onclose }: ConfirmOrderProps) => {
             // loading={loading}
             footer={
                 // Button inside modal to trigger a reload action
-                <Button type="primary" onClick={() => onclose()}>
-                    Close
-                </Button>
+                <>
+                    <Button type="default" onClick={() => onclose()}>
+                        Cancel
+                    </Button>
+                    <Button type="primary" onClick={() => onclose()}>
+                        Confirm
+                    </Button>
+                </>
             }
             width={800}
             open={showModal}
